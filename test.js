@@ -4,8 +4,7 @@ const { PwmDriver, sleep } = require('adafruit-i2c-pwm-driver-async');
 const pwm = new PwmDriver({
     address: 0x40,
     device: '/dev/i2c-1',
-    debug: true,
-    isMockDriver: true // Remove this if running on a Raspberry Pi
+    debug: true
 });
 
 // Configure min and max servo pulse lengths
