@@ -1,4 +1,4 @@
-const { PwmDriver, sleep } = require('adafruit-i2c-pwm-driver-async');
+const { PwmDriver } = require('adafruit-i2c-pwm-driver-async');
 const readline = require('readline');
 // Configure driver
 const pwm = new PwmDriver({
@@ -7,21 +7,23 @@ const pwm = new PwmDriver({
     debug: true
 });
 
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 // Configure min and max servo pulse lengths
 const servoMin = 150; // Min pulse length out of 4096
 const servoMax = 300; // Max pulse length out of 4096
 
-const loop = () => {
-  return sleep(1)
-    .then(pwm.setPWM(0, 0, servoMin))
-    .then(sleep(1))
-    .then(pwm.setPWM(0, 0, servoMax))
-    .then(loop);
+async function loop() {
+    await sleep(1000);
+    pwm.setPWM(0, 0, servoMin);
+    await sleep(1000);
+    pwm.setPWM(0, 0, servoMax);
+    loop();
 };
 
 // Initialize driver and loop
-pwm.init()
-  .then(pwm.setPWMFreq(50))
-  .then(sleep(1))
-  .then(loop)
-  .catch(console.error);
+pwm.init();
+pwm.setPWMFreq(50)
+loop();
