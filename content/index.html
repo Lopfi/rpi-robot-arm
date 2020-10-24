@@ -1,1 +1,47 @@
-Index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>robins robotarm</title>
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+</head>
+<body>
+    <form action="/setParams" method="post" id="form">
+        <label for="min">Min:</label><br>
+        <input type="number" id="min" name="min" value=90><br>
+        <label for="max">Max:</label><br>
+        <input type="number" id="max" name="max" value=200><br>
+        <label for="Frequency">Frequency:</label><br>
+        <input type="number" id="frequency" name="frequency" value=50><br>
+        <input type="submit" value="submit">
+      </form> 
+
+      <form action="/setMotor" method="post" id="form">
+        <label for="channel">channel:</label><br>
+        <input type="number" id="channel" name="channel" value=0><br>
+        <label for="val">Value:</label><br>
+        <input type="number" id="value" name="value" value=-1><br>
+        <input type="submit" value="submit">
+      </form>   
+      <div class="slidecontainer">
+        <input type="range" min="1" max="180" value="90" class="slider" id="0">
+      </div>
+      <div class="slidecontainer">
+        <input type="range" min="1" max="180" value="90" class="slider" id="1">
+      </div>
+      <div class="slidecontainer">
+        <input type="range" min="1" max="180" value="90" class="slider" id="2">
+      </div>
+      <div class="slidecontainer">
+        <input type="range" min="1" max="180" value="90" class="slider" id="3">
+      </div>
+      <div class="slidecontainer">
+        <input type="range" min="1" max="180" value="90" class="slider" id="4">
+      </div>
+      <div class="slidecontainer">
+        <input type="range" min="1" max="180" value="90" class="slider" id="5">
+      </div>
+      
+</body>
+    <script src="/index.js"></script>
+</html>
