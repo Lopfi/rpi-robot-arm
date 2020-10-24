@@ -39,8 +39,8 @@ app.get("/off", (req, res) => {
 
 app.get("*", (req, res) => res.send("404"));
 
-app.listen(80, () => {
-    console.log("App listening on 80");
+app.listen(3000, () => {
+    console.log("App listening on 3000");
 });
 
 
