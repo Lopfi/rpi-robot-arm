@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const bodyParser = require('body-parser');
-const { PwmDriver } = require('adafruit-i2c-pwm-driver-async');
+const PwmDriver = require('adafruit-i2c-pwm-driver-async');
 
 app.use(express.static(path.join(__dirname, "public")));
 app.use(bodyParser.urlencoded({ extended: true }));
