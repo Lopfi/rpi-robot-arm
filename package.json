@@ -1,0 +1,24 @@
+{
+  "name": "rpi-robot-arm",
+  "version": "1.0.0",
+  "description": "A 6-axis robot arm with six servos. As controller I'm using a PCA9685 from Adafruit to control the servos and a RaspberryPi Zero W as main controller.",
+  "main": "app.js",
+  "dependencies": {
+    "i2c-bus": "^5.2.1",
+    "pca9685": "^4.0.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lopfi/rpi-robot-arm.git"
+  },
+  "author": "Robin Dorst",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Lopfi/rpi-robot-arm/issues"
+  },
+  "homepage": "https://github.com/Lopfi/rpi-robot-arm#readme"
+}
