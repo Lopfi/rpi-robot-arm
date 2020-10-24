@@ -27,8 +27,9 @@ app.post("/setPulse", (req, res) => {
     let ch = req.query.channel;
     if (pulse <= servoMax && pulse >= servoMin) {
         pwm.setPWM(channel, 0, pulse);
+        res.send("set");
     }
-    res.send("set");
+    else res.send("wrong input");
 });
 
 app.get("/off", (req, res) => {
