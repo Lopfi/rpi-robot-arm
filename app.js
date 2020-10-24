@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const bodyParser = require('body-parser');
-const { PwmDriver } = require('adafruit-i2c-pwm-driver-async');
+const PwmDriver = require('adafruit-i2c-pwm-driver-async');
 
 app.use(express.static(path.join(__dirname, "public")));
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -23,8 +23,9 @@ pwm.setPWMFreq(50);
 app.get("/", (req, res) => res.sendFile(path.join(__dirname, '/content', 'index.html')))
 
 app.post("/setPulse", (req, res) => {
+    console.log(req.query);
     let pulse = req.query.pulse;
-    let ch = req.query.channel;
+    let channel = req.query.channel;
     if (pulse <= servoMax && pulse >= servoMin) {
         pwm.setPWM(channel, 0, pulse);
         res.send("set");
