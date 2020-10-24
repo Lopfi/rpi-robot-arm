@@ -11,16 +11,6 @@ const pwm = new PwmDriver({
 const servoMin = 150; // Min pulse length out of 4096
 const servoMax = 600; // Max pulse length out of 4096
 
-pwm.init()
-pwm.setPWMFreq(50)
-sleep(1)
-
-pwm.setPWM(0, 0, servoMin)
-sleep(1)
-pwm.setPWM(0, 0, servoMax)
-
-
-/*
 const loop = () => {
   return sleep(1)
     .then(pwm.setPWM(0, 0, servoMin))
@@ -34,4 +24,4 @@ pwm.init()
   .then(pwm.setPWMFreq(50))
   .then(sleep(1))
   .then(loop)
-  .catch(console.error);*/
+  .catch(console.error);
