@@ -23,7 +23,14 @@ pwm = new Pca9685Driver(options, function(err) {
             console.log("Pulse range set.");
         }
     });
- 
+    pwm.setPulseRange(0, 255, 42, function() {
+        if (err) {
+            console.error("Error setting pulse range.");
+        } else {
+            console.log("Pulse range set.");
+        }
+    });
+    /*
     // Set the pulse length to 1500 microseconds for channel 2
     pwm.setPulseLength(2, 1500);
  
@@ -42,4 +49,5 @@ pwm = new Pca9685Driver(options, function(err) {
  
     // Turn on channel 3 (100% power)
     pwm.channelOn(3);
+    */
 });
