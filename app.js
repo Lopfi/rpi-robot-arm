@@ -23,8 +23,8 @@ pwm.init()
 
 app.get("/", (req, res) => res.sendFile(path.join(__dirname, '/content', 'index.html')))
 
-app.get("/setPulse", (req, res) => {
-    let pos = req.query.pulse;
+app.post("/setPulse", (req, res) => {
+    let pulse = req.query.pulse;
     let ch = req.query.channel;
     if (pulse <= servoMax && pulse >= servoMin) {
         pwm.setPWM(channel, 0, pulse);
