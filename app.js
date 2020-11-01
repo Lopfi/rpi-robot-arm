@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const { PwmDriver } = require('adafruit-i2c-pwm-driver-async');
 
 app.use(express.static(path.join(__dirname, "public")));
-app.use(bodyParser.json);
+app.use(bodyParser.urlencoded({ extended: false }))
 app.use(express.json());
 
 const pwm = new PwmDriver({

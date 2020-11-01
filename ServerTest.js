@@ -4,13 +4,13 @@ const path = require('path');
 const bodyParser = require('body-parser');
 
 app.use(express.static(path.join(__dirname, "public")));
-app.use(bodyParser.json);
-app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: false }))
+
 
 app.get("/", (req, res) => res.sendFile(path.join(__dirname, '/content', 'index.html')))
 
 app.post("/setPulse", (req, res) => {
-    console.log(req.query);
+    console.log(req.body);
 });
 
 app.get("*", (req, res) => res.send("404"));
