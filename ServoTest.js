@@ -1,5 +1,4 @@
 const { PwmDriver } = require('adafruit-i2c-pwm-driver-async');
-const readline = require('readline');
 // Configure driver
 const pwm = new PwmDriver({
     address: 0x40,
