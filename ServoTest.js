@@ -1,7 +1,9 @@
-const {Board, Servo} = require("johnny-five");
+var five = require("johnny-five");
+var Raspi = require("raspi-io").RaspiIO;
 var board = new five.Board({
   io: new Raspi()
 });
+
 const controller = "PCA9685";
 
 board.on("ready", () => {
