@@ -17,32 +17,12 @@
       </form> 
 
       <form action="/setPulse" method="post" id="form">
-        <label for="Channel">Channel:</label><br>
-        <input type="text" id="channel" name="channel" value=0><br>
-        <label for="Pulse">Pulse:</label><br>
-        <input type="text" id="pulse" name="pulse" value=-1><br>
+        <label for="channel">Channel:</label><br>
+        <input type="number" id="channel" name="channel" value=0><br>
+        <label for="pulse">Pulse:</label><br>
+        <input type="number" id="pulse" name="pulse" value=-1><br>
         <input type="submit" value="submit">
       </form>   
-    
-      <div class="slidecontainer">
-        <input type="range" min="1" max="180" value="90" class="slider" id="0">
-      </div>
-      <div class="slidecontainer">
-        <input type="range" min="1" max="180" value="90" class="slider" id="1">
-      </div>
-      <div class="slidecontainer">
-        <input type="range" min="1" max="180" value="90" class="slider" id="2">
-      </div>
-      <div class="slidecontainer">
-        <input type="range" min="1" max="180" value="90" class="slider" id="3">
-      </div>
-      <div class="slidecontainer">
-        <input type="range" min="1" max="180" value="90" class="slider" id="4">
-      </div>
-      <div class="slidecontainer">
-        <input type="range" min="1" max="180" value="90" class="slider" id="5">
-      </div>
-      
 </body>
     <script src="/index.js"></script>
 </html>

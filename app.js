@@ -2,10 +2,10 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const bodyParser = require('body-parser');
-const PwmDriver = require('adafruit-i2c-pwm-driver-async');
+const { PwmDriver } = require('adafruit-i2c-pwm-driver-async');
 
 app.use(express.static(path.join(__dirname, "public")));
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json);
 app.use(express.json());
 
 const pwm = new PwmDriver({
@@ -43,10 +43,3 @@ app.get("*", (req, res) => res.send("404"));
 app.listen(3000, () => {
     console.log("App listening on 3000");
 });
-
-
-/*app.get("/items", (req, res) => {
-    let limit = req.query.limit;
-    let offset = req.query.offset;
-    res.send(JSON.stringify(response));
-});*/
