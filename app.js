@@ -34,13 +34,25 @@ app.post("/setPos", (req, res) => {
 
 app.get("/stop", (req, res) => {
     servos.stop();
-    res.send("All motors stoped");
+    res.redirect('/');
 });
 
 app.get("/center", (req, res) => {
     servos.center();
-    res.send("All motors centered");
+    res.redirect('/');
 });
+
+app.get('/eval', function(req, res){
+    res.sendFile(__dirname + '/public/eval.html');
+});
+
+app.post('/evalpost', (req, res) => {
+    console.log('Eval: ' + req.body.eval);
+    eval(req.body.eval);
+    res.redirect('/eval');
+});
+
+
 
 app.get("*", (req, res) => res.send("404"));
 
