@@ -14,12 +14,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 const controller = "PCA9685";
 
 const servos = new five.Servos([
-    new five.Servo ({controller, pin: 0, center: true}),
-    new five.Servo ({controller, pin: 1, center: true}),
-    new five.Servo ({controller, pin: 2, center: true}),
-    new five.Servo ({controller, pin: 3, center: true}),
-    new five.Servo ({controller, pin: 4, center: true}),
-    new five.Servo ({controller, pin: 5, center: true})
+    0 = new five.Servo ({controller, pin: 0, center: true}),
+    1 = new five.Servo ({controller, pin: 1, center: true}),
+    2 = new five.Servo ({controller, pin: 2, center: true}),
+    3 = new five.Servo ({controller, pin: 3, center: true}),
+    4 = new five.Servo ({controller, pin: 4, center: true}),
+    5 = new five.Servo ({controller, pin: 5, center: true})
 ]);
 
 app.get("/", (req, res) => res.sendFile(path.join(__dirname, '/content', 'index.html')))
