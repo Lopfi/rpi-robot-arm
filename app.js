@@ -30,6 +30,8 @@ app.post("/setPos", (req, res) => {
     console.log(req.body);
     let pos = req.query.pos;
     let channel = req.query.pos;
+    console.log(servos[channel]);
+    console.log(all[channel]);
     servos[channel].to(pos);
     res.send("Position set");
 });
