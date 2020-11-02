@@ -2,8 +2,8 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const bodyParser = require('body-parser');
-var five = require("johnny-five");
-var Raspi = require("raspi-io").RaspiIO;
+const five = require("johnny-five");
+const Raspi = require("raspi-io").RaspiIO;
 var board = new five.Board({
   io: new Raspi()
 });
@@ -14,12 +14,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 const controller = "PCA9685";
 
 const servos = new five.Servos([
-    {controller, pin: 0, center: true},
-    {controller, pin: 1, center: true},
-    {controller, pin: 2, center: true},
-    {controller, pin: 3, center: true},
-    {controller, pin: 4, center: true},
-    {controller, pin: 5, center: true}
+    new five.servo ({controller, pin: 0, center: true}),
+    new five.servo ({controller, pin: 1, center: true}),
+    new five.servo ({controller, pin: 2, center: true}),
+    new five.servo ({controller, pin: 3, center: true}),
+    new five.servo ({controller, pin: 4, center: true}),
+    new five.servo ({controller, pin: 5, center: true})
 ]);
 
 app.get("/", (req, res) => res.sendFile(path.join(__dirname, '/content', 'index.html')))
@@ -43,7 +43,7 @@ app.get("/center", (req, res) => {
 });
 
 app.get('/eval', function(req, res){
-    res.sendFile(__dirname + '/public/eval.html');
+    res.sendFile(__dirname + '/content/eval.html');
 });
 
 app.post('/evalpost', (req, res) => {
