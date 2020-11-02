@@ -13,13 +13,14 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 const controller = "PCA9685";
 
-const servos = [
-    new five.Servo ({controller, pin: 0, center: true}),
-    new five.Servo ({controller, pin: 1, center: true}),
-    new five.Servo ({controller, pin: 2, center: true}),
-    new five.Servo ({controller, pin: 3, center: true}),
-    new five.Servo ({controller, pin: 4, center: true}),
-    new five.Servo ({controller, pin: 5, center: true})];
+turntable = new five.Servo ({controller, pin: 0, center: true});
+joint0 = new five.Servo ({controller, pin: 1, center: true});
+joint1 = new five.Servo ({controller, pin: 2, center: true});
+joint2 = new five.Servo ({controller, pin: 3, center: true});
+rotEnd = new five.Servo ({controller, pin: 4, center: true});
+endEffector = new five.Servo ({controller, pin: 5, center: true});
+
+const servos = [turntable, joint0, joint1, joint2, rotEnd, endEffector];
 
 const all = new five.Servos(servos);
 
