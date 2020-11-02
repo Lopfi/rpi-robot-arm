@@ -13,23 +13,21 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 const controller = "PCA9685";
 
-turntable = new five.Servo ({controller, pin: 0, center: true});
-joint0 = new five.Servo ({controller, pin: 1, center: true});
-joint1 = new five.Servo ({controller, pin: 2, center: true});
-joint2 = new five.Servo ({controller, pin: 3, center: true});
-rotEnd = new five.Servo ({controller, pin: 4, center: true});
-endEffector = new five.Servo ({controller, pin: 5, center: true});
-
-const servos = [turntable, joint0, joint1, joint2, rotEnd, endEffector];
-
-const all = new five.Servos(servos);
+const servos = new five.Servos([
+    {controller, pin: 0, center: true},
+    {controller, pin: 1, center: true},
+    {controller, pin: 2, center: true},
+    {controller, pin: 3, center: true},
+    {controller, pin: 4, center: true},
+    {controller, pin: 5, center: true}
+]);
 
 app.get("/", (req, res) => res.sendFile(path.join(__dirname, '/content', 'index.html')))
 
 app.post("/setPos", (req, res) => {
     console.log(req.body);
-    let pos = req.query.pos;
-    let channel = req.query.pos;
+    let pos = req.body.pos;
+    let channel = req.body.pos;
     console.log(servos[channel]);
     console.log(all[channel]);
     servos[channel].to(pos);
