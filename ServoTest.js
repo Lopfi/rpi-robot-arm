@@ -9,12 +9,16 @@ const controller = "PCA9685";
 board.on("ready", () => {
   console.log("Connected");
 
-  const servo = new five.Servo({
-    controller,
-    range: [0, 180],
-    pin: 0,
-  });
+  var servos = new five.Servos([
+    {controller, pin: 0, center: true},
+    {controller, pin: 1, center: true},
+    {controller, pin: 2, center: true},
+    {controller, pin: 3, center: true},
+    {controller, pin: 4, center: true},
+    {controller, pin: 5, center: true}
+]);
 
-  servo.sweep();
-  
+servos.forEach(servo => {
+  servo.sweep(); 
+});
 });

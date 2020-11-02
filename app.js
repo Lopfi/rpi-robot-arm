@@ -2,40 +2,38 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const bodyParser = require('body-parser');
-const { PwmDriver } = require('adafruit-i2c-pwm-driver-async');
+var five = require("johnny-five");
+var Raspi = require("raspi-io").RaspiIO;
+var board = new five.Board({
+  io: new Raspi()
+});
 
 app.use(express.static(path.join(__dirname, "public")));
 app.use(bodyParser.urlencoded({ extended: false }))
-app.use(express.json());
 
-const pwm = new PwmDriver({
-    address: 0x40,
-    device: '/dev/i2c-1',
-    debug: false
-});
+const controller = "PCA9685";
 
-const servoMin = 90; // Min pulse length out of 4096
-const servoMax = 300; // Max pulse length out of 4096
-
-pwm.init();
-pwm.setPWMFreq(50);
+var servos = new five.Servos([
+    {controller, pin: 0, center: true},
+    {controller, pin: 1, center: true},
+    {controller, pin: 2, center: true},
+    {controller, pin: 3, center: true},
+    {controller, pin: 4, center: true},
+    {controller, pin: 5, center: true}
+]);
 
 app.get("/", (req, res) => res.sendFile(path.join(__dirname, '/content', 'index.html')))
 
-app.post("/setPulse", (req, res) => {
+app.post("/setPos", (req, res) => {
     console.log(req.query);
-    let pulse = req.query.pulse;
-    let channel = req.query.channel;
-    if (pulse <= servoMax && pulse >= servoMin) {
-        pwm.setPWM(channel, 0, pulse);
-        res.send("set");
-    }
-    else res.send("wrong input");
+    let pos = req.query.pos;
+    let channel = req.query.pos;
+    servos[channel].to(pos);
 });
 
-app.get("/off", (req, res) => {
-    pwm.stop();
-    res.send("off");
+app.get("/stop", (req, res) => {
+    servos.stop();
+    res.send("stop");
 });
 
 app.get("*", (req, res) => res.send("404"));
