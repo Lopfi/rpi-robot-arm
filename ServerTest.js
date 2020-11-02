@@ -9,7 +9,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 
 app.get("/", (req, res) => res.sendFile(path.join(__dirname, '/content', 'index.html')))
 
-app.post("/setPulse", (req, res) => {
+app.post("/setPos", (req, res) => {
     console.log(req.body);
 });
 
