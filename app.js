@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 const controller = "PCA9685";
 
-var servos = new five.Servos([
+const servos = new five.Servos([
     {controller, pin: 0, center: true},
     {controller, pin: 1, center: true},
     {controller, pin: 2, center: true},
@@ -35,6 +35,11 @@ app.post("/setPos", (req, res) => {
 app.get("/stop", (req, res) => {
     servos.stop();
     res.send("All motors stoped");
+});
+
+app.get("/center", (req, res) => {
+    servos.center();
+    res.send("All motors centered");
 });
 
 app.get("*", (req, res) => res.send("404"));
