@@ -12,7 +12,7 @@ board.on("ready", () => {
   const servo = new Servo({
     controller,
     range: [0, 180],
-    pin: 1,
+    pin: 0,
   });
 
   servo.sweep();
