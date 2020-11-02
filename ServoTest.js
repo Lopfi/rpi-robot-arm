@@ -9,10 +9,10 @@ const controller = "PCA9685";
 board.on("ready", () => {
   console.log("Connected");
 
-  const servo = new Servo({
+  const servo = new five.Servo({
     controller,
     range: [0, 180],
-    pin: 1,
+    pin: 0,
   });
 
   servo.sweep();
