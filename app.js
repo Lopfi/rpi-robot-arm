@@ -27,7 +27,8 @@ app.get("/", (req, res) => res.sendFile(path.join(__dirname, '/content', 'index.
 app.post("/setPos", (req, res) => {
     console.log(req.body);
     let pos = req.body.pos;
-    let channel = req.body.pos;
+    let channel = req.body.channel;
+    console.log(channel);
     servos[channel].to(pos);
     res.send("Position set");
 });
