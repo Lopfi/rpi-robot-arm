@@ -11,6 +11,18 @@ channels = {ch0, ch1, ch2, ch3, ch4, ch5};
 channels.forEach(element => {
     element.oninput = function() {
         output.innerHTML = this.value;
-        
+        $.ajax({
+          url: '/setPos',
+          dataType: 'number',
+          type: 'post',
+          contentType: 'application/x-www-form-urlencoded',
+          data: $(this).serialize(),
+          success: function( data, textStatus, jQxhr ){
+              $('#response pre').html( data );
+          },
+          error: function( jqXhr, textStatus, errorThrown ){
+              console.log( errorThrown );
+          }
+      });
       }
 });
