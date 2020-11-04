@@ -2,11 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>robins robotarm</title>
+    <title>Controlpanel</title>
+    <link rel="stylesheet" href="/global.css">
     <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script defer src="/index.js"></script>
 </head>
 <body>
+  <h1>Robotarm Controlpanel</h1>
+  <p>Use the form to move a motor to a specific position or use the sliders to easily move each of the joints.</p>
     <div class="forms">
       <form action="/setPos" method="post" id="form">
         <label for="channel">Channel:</label><br>
@@ -18,12 +21,12 @@
     </div>
     <div class="slidecontainer">
       <input type="range" min="0" max="180" value="90" class="slider" id="0">
-      <div></div>
       <input type="range" min="0" max="180" value="90" class="slider" id="1">
       <input type="range" min="0" max="180" value="90" class="slider" id="2">
       <input type="range" min="0" max="180" value="90" class="slider" id="3">
       <input type="range" min="0" max="180" value="90" class="slider" id="4">
       <input type="range" min="0" max="180" value="90" class="slider" id="5">
     </div>
+    <a href="/center" class="button">center all</a>
 </body>
 </html>

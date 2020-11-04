@@ -30,7 +30,7 @@ app.post("/setPos", (req, res) => {
     let channel = req.body.channel;
     console.log(channel);
     servos[channel].to(pos);
-    res.send("Position set");
+    res.redirect('/');
 });
 
 app.get("/stop", (req, res) => {
