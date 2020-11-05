@@ -1,9 +1,9 @@
 body {
-    background-color: #4d4d4d;
+    background-color: #ffffff;
 }
 
 h1 {
-    color: white;
+    color: #000000;
     text-align: center;
 }
   
@@ -12,11 +12,71 @@ p {
     font-size: 20px;
 }
 
-.button {
-    -webkit-appearance: button;
-    -moz-appearance: button;
-    appearance: button;
+form input, form select {
+    font-family: verdana;
+    font-size: 20px;
+    display: inline-block;
+}
 
+ form label {
+    width: 40px; 
+    font-family: verdana;
+    font-size: 20px;
+    margin-right: 20px;
+}
+
+a:link, a:visited {
+    background-color: #0a3469;
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
     text-decoration: none;
-    color: initial;
+    display: inline-block;
+    margin-top: 30px;
+}
+    
+a:hover, a:active {
+    background-color: #07254b;
+}
+
+.slidecontainer {
+    width: 50%;
+}
+
+.slider {
+    -webkit-appearance: none;
+    width: 80%;
+    height: 25px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.slider:hover {
+    opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    background: #0a3469;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    background: #07254b;
+    cursor: pointer;
+}
+
+label.slider-label {
+    width: 20%;
+    font-family: verdana;
+    font-size: 20px;
+    margin-right: 20px;
 }

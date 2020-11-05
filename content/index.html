@@ -8,32 +8,48 @@
     <script defer src="/index.js"></script>
 </head>
 <body>
-  <h1>Robot arm control panel</h1>
+  <h1>Robot Arm Control</h1>
   <p>Use the form to move a motor to a specific position or use the sliders to easily move each of the joints.</p>
-    <div class="forms">
-      Set Channel:
+    <div class="form">
+      <p>Set a specific joint:</p>
       <form action="/setPos" method="post" id="form">
-        <label for="channel">Channel:</label><br>
-        <input type="number" id="channel" name="channel" value=0><br>
-        <label for="pos">Position:</label><br>
-        <input type="number" id="pos" name="pos" value=90><br>
-        <input type="submit" value="submit">
+        <div class="form-group">
+          <label for="channel">ID:</label>
+          <input type="number" id="channel" name="channel" value=0><br>
+        </div>
+        <div class="form-group">
+          <label for="pos">To:</label>
+          <input type="number" id="pos" name="pos" value=90><br>
+        </div>
+        <input type="submit" value="Set">
       </form>   
     </div>
     <div class="slidecontainer">
-      Base:
-      <input type="range" min="0" max="180" value="90" class="slider" id="0">
-      Shoulder:
-      <input type="range" min="0" max="180" value="90" class="slider" id="1">
-      Elbow:
-      <input type="range" min="0" max="180" value="90" class="slider" id="2">
-      Wrist Pitch:
-      <input type="range" min="0" max="180" value="90" class="slider" id="3">
-      Wrist Roll:
-      <input type="range" min="0" max="180" value="90" class="slider" id="4">
-      Attachment:
-      <input type="range" min="0" max="180" value="90" class="slider" id="5">
+      <div class="slider-group">
+        <label class="slider-label">Base:</label>
+        <input type="range" min="0" max="180" value="90" class="slider" id="0">
+      </div>
+      <div class="slider-group">
+        <label class="slider-label">Shoulder:</label>
+        <input type="range" min="0" max="180" value="90" class="slider" id="1">
+      </div>
+      <div class="slider-group">
+        <label class="slider-label">Elbow:</label>
+        <input type="range" min="0" max="180" value="90" class="slider" id="2">
+      </div>
+      <div class="slider-group">
+        <label class="slider-label">Wrist Pitch:</label>
+        <input type="range" min="0" max="180" value="90" class="slider" id="3">
+      </div>
+      <div class="slider-group">
+        <label class="slider-label">Wrist Roll:</label>
+        <input type="range" min="0" max="180" value="90" class="slider" id="4">
+      </div>
+      <div class="slider-group">
+        <label class="slider-label">Attachment:</label>
+        <input type="range" min="0" max="180" value="90" class="slider" id="5">
+      </div>
     </div>
-    <a href="/center" class="button">center all</a>
+    <a href="/center" class="button">Center All</a>
 </body>
 </html>
