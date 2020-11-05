@@ -28,8 +28,9 @@ app.post("/setPos", (req, res) => {
     console.log(req.body);
     let pos = req.body.pos;
     let channel = req.body.channel;
-    console.log(channel);
-    servos[channel].to(pos);
+    let all = req.body.all;
+    if(all) servos.to(pos);
+    else servos[channel].to(pos);
     res.redirect('/');
 });
 

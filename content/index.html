@@ -2,15 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Controlpanel</title>
+    <title>Control panel</title>
     <link rel="stylesheet" href="/global.css">
     <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script defer src="/index.js"></script>
 </head>
 <body>
-  <h1>Robotarm Controlpanel</h1>
+  <h1>Robot arm control panel</h1>
   <p>Use the form to move a motor to a specific position or use the sliders to easily move each of the joints.</p>
     <div class="forms">
+      Set Channel:
       <form action="/setPos" method="post" id="form">
         <label for="channel">Channel:</label><br>
         <input type="number" id="channel" name="channel" value=0><br>
@@ -20,11 +21,17 @@
       </form>   
     </div>
     <div class="slidecontainer">
+      Base:
       <input type="range" min="0" max="180" value="90" class="slider" id="0">
+      Shoulder:
       <input type="range" min="0" max="180" value="90" class="slider" id="1">
+      Elbow:
       <input type="range" min="0" max="180" value="90" class="slider" id="2">
+      Wrist Pitch:
       <input type="range" min="0" max="180" value="90" class="slider" id="3">
+      Wrist Roll:
       <input type="range" min="0" max="180" value="90" class="slider" id="4">
+      Attachment:
       <input type="range" min="0" max="180" value="90" class="slider" id="5">
     </div>
     <a href="/center" class="button">center all</a>
