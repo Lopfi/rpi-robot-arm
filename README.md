@@ -4,26 +4,20 @@ A 6-axis robot arm with six servos. As controller I'm using a PCA9685 from Adafr
 
 ## Installation
 
-    - Download and install node if not already installed
-    - Clone the repository with
-    ```sh
-    git clone https://github.com/Lopfi/rpi-robot-arm
-    ```
-    - Run ```sh
-    npm install
-    ``` to install the dependencies
-    - To run the program use ```sh
-    npm run
-    ```
-    - Or ```sh
-    npm test_server
-    npm test_servos```
-    to test the functions separately
+- Download and install node if not already installed
+- Clone the repository with
+``` sh
+git clone https://github.com/Lopfi/rpi-robot-arm
+```
+- Run ```npm install``` to install the dependencies
+- To run the program use ```sh
+npm run```
+- Or ```npm test_server``` or ```npm test_servos``` to test the functions separately
 
 After starting you can connect to the web-interface using your pi's ip on port 3000, just type in your browser \<ip\>:3000 and replace ip with your pi's ip.
 
 ### Start
 
 use
-```sh $ node .```
+```node .```
 to start the software
