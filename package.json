@@ -11,13 +11,15 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test_server": "node ServerTest.js",
+    "test_servos": "node ServoTest.js",
+    "run": "node ."
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Lopfi/rpi-robot-arm.git"
   },
-  "author": "Robin Dorst",
+  "author": "Lopfi",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/Lopfi/rpi-robot-arm/issues"
