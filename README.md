@@ -17,4 +17,4 @@ git clone https://github.com/Lopfi/rpi-robot-arm
 npm run```
 - Or ```npm test_server``` or ```npm test_servos``` to test the functions separately
 
-After starting you can connect to the web-interface using your pi's ip on port 3000, just type in your browser \<ip\>:3000 and replace ip with your pi's ip.
+After starting you can connect to the web-interface using your pi's ip on port 3000, just type in your browser \<ip\>:3000 and replace \<ip\> with your pi's local ip.
