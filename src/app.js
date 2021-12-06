@@ -22,7 +22,7 @@ const servos = new five.Servos([
     {controller, pin: 5, center: true}
 ]);
 
-app.get("/", (req, res) => res.sendFile(path.join(__dirname, '/content', 'index.html')))
+app.get("/", (req, res) => res.sendFile(path.join(__dirname, '../content', 'index.html')))
 
 app.post("/setPos", (req, res) => {
     console.log(req.body);
@@ -45,7 +45,7 @@ app.get("/center", (req, res) => {
 });
 
 app.get('/eval', function(req, res){
-    res.sendFile(__dirname + '/content/eval.html');
+    res.sendFile(__dirname + '../content/eval.html');
 });
 
 app.post('/evalpost', (req, res) => {
